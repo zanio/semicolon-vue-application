@@ -11,5 +11,4 @@ module.exports = {
   parserOptions: {
     parser: "babel-eslint"
   },
-  experimentalDecorators:true
 };
