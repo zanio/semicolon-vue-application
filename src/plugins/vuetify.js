@@ -1,7 +1,23 @@
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
-import { preset } from 'vue-cli-plugin-vuetify-preset-shrine/preset'
+// src/plugins/vuetify.js
 
-Vue.use(Vuetify);
+import Vue from 'vue'
+import Vuetify from 'vuetify/lib'
+import light from './theme';
+import { preset } from 'vue-cli-plugin-vuetify-preset-crane/preset';
 
-export default new Vuetify({ preset });
+Vue.use(Vuetify)
+
+const options = {
+  theme: {
+    themes: 
+       { light },
+      
+  }
+}
+
+export default new Vuetify({
+  // The provided global preset is first merged with defaults
+  preset,
+  // User options are then merged, overwriting defaults and the global preset
+  ...options,
+});
