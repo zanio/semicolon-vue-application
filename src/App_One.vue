@@ -262,7 +262,6 @@ export default {
     onSignup() {
       console.log(this.search);
       if (this.$refs.form.validate()) {
-        // Native form submission is not yet supported
         console.log(this.search);
       }
       // this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
