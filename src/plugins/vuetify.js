@@ -12,7 +12,8 @@ const options = {
     themes: 
        { light },
       
-  }
+  },
+  breakpoint: { scrollbarWidth: 12 },
 }
 
 export default new Vuetify({

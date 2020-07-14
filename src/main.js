@@ -1,11 +1,11 @@
 import Vue from "vue";
 import App from "./App_One.vue";
-import router from "./router";
-import store from "./store";
+// import router from "./router";
+// import store from "./store";
 
 import "./registerServiceWorker";
 
-import { CHECK_AUTH } from "./store/actions.type";
+// import { CHECK_AUTH } from "./store/actions.type";
 import ApiService from "./common/api.service";
 import DateFilter from "./common/date.filter";
 import ErrorFilter from "./common/error.filter";
