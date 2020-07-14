@@ -92,7 +92,7 @@
                 </vue-tel-input-vuetify>
 
                 <v-autocomplete
-                  label="Your Age Range"
+                  label="Age"
                   :items="dropdown"
                   outlined
                   dense
@@ -100,7 +100,7 @@
                   :append-icon="mdiChevronDown"
                   small-chips
                   required
-                  hint="need to open menu on focus, just like click"
+                  hint="click to select"
                   persistent-hint
                   :rules="[v => !!v || 'Age range is required']"
                   menu-props="auto, overflowY"
@@ -232,9 +232,7 @@ export default {
     };
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
   computed: {
     regexValidationForNumber(val) {
       const reg = /^\d+$/;
@@ -244,7 +242,7 @@ export default {
   watch: {
     search(val) {
       val && val !== this.select && this.querySelections(val);
-      console.log(val)
+      console.log(val);
     }
   },
   methods: {
