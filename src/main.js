@@ -2,6 +2,8 @@ import Vue from "vue";
 import App from "./App_One.vue";
 // import router from "./router";
 // import store from "./store";
+import VueTelInputVuetify from 'vue-tel-input-vuetify/lib';
+
 
 import "./registerServiceWorker";
 
@@ -17,8 +19,9 @@ Vue.config.productionTip = false;
 
 Vue.filter("date", DateFilter);
 Vue.filter("error", ErrorFilter);
-
-
+Vue.use(VueTelInputVuetify, {
+  vuetify,
+});
 
 ApiService.init();
 

@@ -11,7 +11,10 @@
       >
       <v-container >
        <div class="d-flex flex-column">
+         <form @submit.prevent="onSignup">
+
        <v-responsive class="pt-5 pb-5">
+
          <v-img
           alt="Semicolon Logo"
           class="shrink"
@@ -36,72 +39,61 @@
         <h2 class="heading default--text pt-5 pb-5">Become an Innovator</h2> 
 
         <div class="d-flex justify-space-between">
-          <v-autocomplete
-            v-model="values"
-            outlined
-            dense
-            chips
-            small-chips
-            label="First Name"
-            multiple
-            class="mr-2"
-          ></v-autocomplete>
-          <v-autocomplete
-            v-model="values"
-            outlined
-            dense
-            chips
-            small-chips
-            label="Last Name"
-            multiple
-          ></v-autocomplete>
+       <v-text-field 
+       name="firstname" label="First Name" 
+       id="firstname" 
+       v-model="firstname" 
+       outlined
+       class="mr-2"
+       type="text" required></v-text-field>
+
+         <v-text-field 
+         name="lastname" 
+         outlined=""
+         label="Last Name" 
+         id="lastname" 
+         v-model="lastname" 
+         type="text" required></v-text-field>
+
           </div>  
 
-          <v-autocomplete
-            v-model="values"
-            outlined
-            dense
-            chips
-            small-chips
-            label="Email Address"
-            multiple
-          ></v-autocomplete>  
+     <v-text-field 
+     outlined name="email" label="Email" id="email" v-model="email" type="email" required></v-text-field>
 
-          <v-autocomplete
-            v-model="values"
-            outlined
-            dense
-            chips
-            small-chips
-            label="Phone Number"
-            multiple
-          ></v-autocomplete> 
 
-        <v-autocomplete
+      <vue-tel-input-vuetify 
+      label="Phone Number"  
+      placeholder="Phone Number" 
+      required name="phone_number" 
+      outlined flat  mode="international"
+      :error-messages="errorPhoneNumber"
+      dense full-width v-model="phone" @input="countrySelected" @country-changed="countrySelected"	>
+      <span >
+      <v-icon>arrow_drop_down</v-icon>
+      </span>
+      </vue-tel-input-vuetify>
+
+    
+     <v-autocomplete
          ref="autocomplete"
         label="Your Age Range"
           :items="dropdown"
           outlined
           dense
           chips
-          append-icon
+          :append-icon="mdiChevronDown"
           small-chips
-      ></v-autocomplete>
+      >
+      </v-autocomplete>
 
     <v-radio-group v-model="gender" row>
       <template v-slot:label>
         <p class="secondary-text text-darken-1 font-weight-bold">Gender</p>
       </template>
       <v-radio  color="primary" name="gender" label="Male" :value="male" key="0">
-        <template v-slot:label>
-        <p class="secondary-text text-lighten-1 font-weight-medium">male</p>
-      </template>
+        
       </v-radio>
      <v-radio  color="primary" name="gender" label="Female" :value="female" key="1">
-
-        <template v-slot:label>
-        <p class="secondary-text text-lighten-1 font-weight-light font-weight-medium">female</p>
-      </template>
      </v-radio>
     </v-radio-group>
 
@@ -122,11 +114,12 @@
 
      <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank" elevation="0"
-        class="ma-2"  color="primary" >
-        Apply
+        target="_blank" elevation="0" width="100%"
+        class=""  color="primary" >
+        Apply 
       </v-btn>
-        
+      </form>
+
       </div>
        </v-container>
       </v-col>
@@ -181,7 +174,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
-
+import { mdiChevronDown } from '@mdi/js';
 export default {
   name: 'App',
 
@@ -193,18 +186,41 @@ export default {
     return { 
       dropdown: ['10-15', '16-20', '20-30', '30-40', '40-above'],
      gender:"male",
-     checkbox:false
-    }},
+     checkbox:false,
+     mdiChevronDown,
+    phone: null,
+    countryCode: null,
+    errorPhoneNumber:""
+
+    }
+    
+    },
 
     mounted () {
     let autocompleteInput = this.$refs.autocomplete.$refs.input;
 
     autocompleteInput.addEventListener('focus', this.onFocus, true);
+    autocompleteInput.addEventListener('click', this.onFocus, true);
   },
+  
   methods: {
+    isPhoneNumberValid(value){
+      return value>=21|| value!="" || value !="undefined"
+    },
     onFocus (e) {
       this.$refs.autocomplete.isMenuActive = true; // open item list
+    },
+    countrySelected(val) {
+    this.countryCode = val.dialCode;
+    console.log(this.phone)
+  },
+  onSignup () {
+    if(this.isPhoneNumberValid(this.phone)){
+      return this.errorPhoneNumber = "Phone Number is not valid"
     }
+    // this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
+//        console.log({email: this.email, password: this.password, confirmPassword: this.confirmPassword})
+  },
   }
 };
 </script>

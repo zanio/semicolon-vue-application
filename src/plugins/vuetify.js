@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import light from './theme';
 import { preset } from 'vue-cli-plugin-vuetify-preset-crane/preset';
+import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 
 Vue.use(Vuetify)
 
@@ -14,6 +15,10 @@ const options = {
       
   },
   breakpoint: { scrollbarWidth: 12 },
+  icons: {
+    iconfont: 'mdi', // default - only for display purposes
+  },
+
 }
 
 export default new Vuetify({

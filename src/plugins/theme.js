@@ -8,5 +8,6 @@ export default {
   info: "#2196F3",
   success: "#00D689",
   warning: "#FFC107",
-  orange: "#FF7E1D"
+  orange: "#FF7E1D",
+  nuetral:"#2B1C1C"
 };
