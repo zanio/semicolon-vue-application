@@ -123,6 +123,7 @@
                   :rules="[v => !!v || 'Gender is required']"
                   v-model="gender"
                   required
+                  label="Gender"
                   row
                 >
                   <v-radio color="primary" label="Male" value="male"> </v-radio>
@@ -241,7 +242,9 @@ export default {
     };
   },
 
-  mounted() {},
+  mounted() {
+    console.log(this)
+  },
   computed: {
     regexValidationForNumber() {
       return [v => !!v || "phone number is required"];
@@ -259,7 +262,6 @@ export default {
   watch: {
     search(val) {
       val && val !== this.select && this.querySelections(val);
-      console.log(val);
     }
   },
   methods: {

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <SemicolonHeader />
-    <router-view></router-view>
-    <SemicolonFooter />
+    <!-- <SemicolonHeader /> -->
+    <router-view/>
+    <!-- <SemicolonFooter /> -->
   </div>
 </template>
 
