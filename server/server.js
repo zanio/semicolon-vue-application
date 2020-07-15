@@ -11,7 +11,7 @@ app.get("/ping", function(req, res) {
   return res.send("pong");
 });
 
-const isProduction = process.env.NODE_ENV === undefined;
+const isProduction = process.env.NODE_ENV === "production";
 
 console.log(isProduction);
 
