@@ -12,10 +12,10 @@
                   v-for="(error, index) in errors"
                   :key="index"
                   dense
-                  outlined
                   type="error"
+                  class="danger--text darken-2 mt-8 font-weight-thin"
                 >
-                  {{ index }} {{ error | error }}
+                  {{ error }}
                 </v-alert>
               </ul>
 
@@ -157,7 +157,7 @@
                   width="100%"
                   class="mt-3 mb-3"
                   color="primary"
-                  :disabled="!isValid"
+                  :disabled="!isValid || isLoading"
                 >
                   Apply
                 </v-btn>
@@ -243,7 +243,7 @@ export default {
   },
 
   mounted() {
-    console.log(this)
+    console.log(this);
   },
   computed: {
     regexValidationForNumber() {
@@ -256,7 +256,8 @@ export default {
       ];
     },
     ...mapState({
-      errors: state => state.auth.errors
+      errors: state => state.auth.errors,
+      isLoading: state => state.auth.isLoading
     })
   },
   watch: {
@@ -266,7 +267,6 @@ export default {
   },
   methods: {
     setAgeRange() {
-      console.log(this.$refs.autocomplete.selectedItem);
       this.ageRange = this.$refs.autocomplete.selectedItem;
     },
     isPhoneNumberValid(value) {
@@ -284,11 +284,12 @@ export default {
           .dispatch(REGISTER, {
             firstname: this.firstname,
             lastname: this.lastname,
-            phoneNumber: this.phonenumber,
+            phoneNumber: this.phone,
             email: this.email,
-            password: "aa"
+            gender: this.gendeer,
+            select: this.select
           })
-          .then(() => this.$router.push({ name: "home" }));
+          .then(() => this.$router.push({ name: "welcome" }));
       }
     }
   }
