@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 <template>
   <v-app>
     <v-main class="">
@@ -6,13 +7,25 @@
         <v-col cols="12" sm="12" lg="3" md="12">
           <v-container>
             <div class="d-flex flex-column">
+              <ul v-if="errors">
+                <v-alert
+                  v-for="(error, index) in errors"
+                  :key="index"
+                  dense
+                  outlined
+                  type="error"
+                >
+                  {{ index }} {{ error | error }}
+                </v-alert>
+              </ul>
+
               <v-form ref="form" lazy-validation v-model="isValid">
                 <v-responsive class="pt-5 pb-5">
                   <v-img
                     alt="Semicolon Logo"
                     class="shrink"
                     contain
-                    src="../static/semicolon.svg"
+                    src="../../static/semicolon.svg"
                     transition="scale-transition"
                     max-width="200"
                   >
@@ -68,7 +81,7 @@
                   v-model="email"
                   type="email"
                   required
-                  :rules="[v => !!v || 'Email is required']"
+                  :rules="emailRule"
                 ></v-text-field>
 
                 <vue-tel-input-vuetify
@@ -77,9 +90,7 @@
                   name="phone_number"
                   outlined
                   flat
-                  :rules="[
-                    v => !!v || 'Only digits are valid for phone number'
-                  ]"
+                  :rules="regexValidationForNumber"
                   mode="international"
                   full-width
                   v-model="phone"
@@ -92,6 +103,7 @@
                 </vue-tel-input-vuetify>
 
                 <v-autocomplete
+                  v-model="select"
                   label="Age"
                   :items="dropdown"
                   outlined
@@ -100,8 +112,6 @@
                   :append-icon="mdiChevronDown"
                   small-chips
                   required
-                  hint="click to select"
-                  persistent-hint
                   :rules="[v => !!v || 'Age range is required']"
                   menu-props="auto, overflowY"
                   :search-input.sync="search"
@@ -115,16 +125,17 @@
                   required
                   row
                 >
-                  <!-- <template v-slot:label>
-                    <p class="secondary-text text-darken-1 font-weight-bold">
-                      Gender
-                    </p>
-                  </template> -->
-                  <v-radio color="primary" label="Male" :value="0"> </v-radio>
-                  <v-radio color="primary" label="Female" :value="1"> </v-radio>
+                  <v-radio color="primary" label="Male" value="male"> </v-radio>
+                  <v-radio color="primary" label="Female" value="female">
+                  </v-radio>
                 </v-radio-group>
 
-                <v-checkbox dense :rules="checkbox" required v-model="checkbox">
+                <v-checkbox
+                  dense
+                  :rules="[v => !!v || 'Please accept the terms and condition']"
+                  required
+                  v-model="checkbox"
+                >
                   <template v-slot:label>
                     <div>
                       I agree to the
@@ -143,7 +154,7 @@
                   @click.prevent="onSignup"
                   elevation="0"
                   width="100%"
-                  class=""
+                  class="mt-3 mb-3"
                   color="primary"
                   :disabled="!isValid"
                 >
@@ -166,7 +177,7 @@
                   alt="Semicolon Logo"
                   class="shrink"
                   contain
-                  src="../static/doorway-illo.png"
+                  src="../../static/doorway-illo.png"
                   transition="scale-transition"
                   max-width="300"
                 >
@@ -206,14 +217,11 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 import { mdiChevronDown } from "@mdi/js";
+import { mapState } from "vuex";
+import { REGISTER } from "@/store/actions.type";
 export default {
   name: "App",
-
-  components: {
-    HelloWorld
-  },
 
   data() {
     return {
@@ -227,17 +235,26 @@ export default {
       firstname: null,
       lastname: null,
       ageRange: null,
-      search: "",
+      search: null,
+      select: null,
       mdiChevronDown
     };
   },
 
   mounted() {},
   computed: {
-    regexValidationForNumber(val) {
-      const reg = /^\d+$/;
-      return [reg.test(val) || "Only digits are valid for Phone Number"];
-    }
+    regexValidationForNumber() {
+      return [v => !!v || "phone number is required"];
+    },
+    emailRule() {
+      return [
+        v => !!v,
+        v => /.+@.+/.test(v) || "Email is required and Email must be valid"
+      ];
+    },
+    ...mapState({
+      errors: state => state.auth.errors
+    })
   },
   watch: {
     search(val) {
@@ -260,12 +277,17 @@ export default {
       this.countryCode = val.dialCode;
     },
     onSignup() {
-      console.log(this.search);
       if (this.$refs.form.validate()) {
-        console.log(this.search);
+        this.$store
+          .dispatch(REGISTER, {
+            firstname: this.firstname,
+            lastname: this.lastname,
+            phoneNumber: this.phonenumber,
+            email: this.email,
+            password: "aa"
+          })
+          .then(() => this.$router.push({ name: "home" }));
       }
-      // this.$store.dispatch('signUserUp', {email: this.email, password: this.password})
-      //        console.log({email: this.email, password: this.password, confirmPassword: this.confirmPassword})
     }
   }
 };

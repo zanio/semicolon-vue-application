@@ -1,2 +1,2 @@
-export const API_URL = "https://conduit.productionready.io/api";
+export const API_URL = "http://alaajo-frontend.herokuapp.com/api/";
 export default API_URL;

@@ -1,9 +1,8 @@
 import Vue from "vue";
-import App from "./App_One.vue";
-// import router from "./router";
-// import store from "./store";
-import VueTelInputVuetify from 'vue-tel-input-vuetify/lib';
-
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import VueTelInputVuetify from "vue-tel-input-vuetify/lib";
 
 import "./registerServiceWorker";
 
@@ -13,14 +12,12 @@ import DateFilter from "./common/date.filter";
 import ErrorFilter from "./common/error.filter";
 import vuetify from "./plugins/vuetify";
 
-
-
 Vue.config.productionTip = false;
 
 Vue.filter("date", DateFilter);
 Vue.filter("error", ErrorFilter);
 Vue.use(VueTelInputVuetify, {
-  vuetify,
+  vuetify
 });
 
 ApiService.init();
@@ -31,8 +28,8 @@ ApiService.init();
 // );
 
 new Vue({
-  // router,
-  // store,
+  router,
+  store,
   vuetify,
   render: h => h(App)
 }).$mount("#app");

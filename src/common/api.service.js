@@ -13,18 +13,18 @@ const ApiService = {
   setHeader() {
     Vue.axios.defaults.headers.common[
       "Authorization"
-    ] = `Token ${JwtService.getToken()}`;
+    ] = `${JwtService.getToken()}`;
   },
 
   query(resource, params) {
     return Vue.axios.get(resource, params).catch(error => {
-      throw new Error(`[RWV] ApiService ${error}`);
+      throw new Error(`[Semicolon App] ApiService ${error}`);
     });
   },
 
   get(resource, slug = "") {
     return Vue.axios.get(`${resource}/${slug}`).catch(error => {
-      throw new Error(`[RWV] ApiService ${error}`);
+      throw new Error(`[Semicolon App] ApiService ${error}`);
     });
   },
 
@@ -42,7 +42,7 @@ const ApiService = {
 
   delete(resource) {
     return Vue.axios.delete(resource).catch(error => {
-      throw new Error(`[RWV] ApiService ${error}`);
+      throw new Error(`[Semicolon App] ApiService ${error}`);
     });
   }
 };
