@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <v-footer>
     <div class="container">
       <router-link class="logo-font" :to="{ name: 'home', params: {} }">
         conduit
@@ -11,7 +11,7 @@
         >. Code &amp; design licensed under MIT.
       </span>
     </div>
-  </footer>
+  </v-footer>
 </template>
 
 <script>

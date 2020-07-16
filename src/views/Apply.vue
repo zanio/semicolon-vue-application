@@ -1,24 +1,12 @@
 /* eslint-disable prettier/prettier */
 <template>
   <v-app>
-    <v-main class="">
+    <v-main>
       <v-row style="height:100%;" no-gutters>
         <v-col cols="12" lg="1" class="hidden-md-and-down" />
         <v-col cols="12" sm="12" lg="3" md="12">
           <v-container>
             <div class="d-flex flex-column">
-              <ul v-if="errors">
-                <v-alert
-                  v-for="(error, index) in errors"
-                  :key="index"
-                  dense
-                  type="error"
-                  class="danger--text darken-2 mt-8 font-weight-thin"
-                >
-                  {{ error }}
-                </v-alert>
-              </ul>
-
               <v-form ref="form" lazy-validation v-model="isValid">
                 <v-responsive class="pt-5 pb-5">
                   <v-img
@@ -152,7 +140,7 @@
                 </v-checkbox>
 
                 <v-btn
-                  @click.prevent="onSignup"
+                  @click.prevent="onSignUp"
                   elevation="0"
                   width="100%"
                   class="mt-3 mb-3"
@@ -243,7 +231,7 @@ export default {
   },
 
   mounted() {
-    console.log(this);
+    console.log(this.$route);
   },
   computed: {
     regexValidationForNumber() {
@@ -278,7 +266,7 @@ export default {
     countrySelected(val) {
       this.countryCode = val.dialCode;
     },
-    onSignup() {
+    onSignUp() {
       if (this.$refs.form.validate()) {
         this.$store
           .dispatch(REGISTER, {
