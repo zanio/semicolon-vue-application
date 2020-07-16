@@ -1,15 +1,11 @@
 <template>
   <v-app>
-    <v-container v-if="errors && errors.length > 0" fluid>
+    z<v-container v-if="errors && errors.length > 0" fluid>
       <v-layout row>
         <v-flex xs12>
-          <v-alert
-            type="error"
-            dense
-            class="white--text darken-2 font-weight-bold text-center"
-          >
-            {{ errors }}
-          </v-alert>
+          <alert
+            :text="errors"
+          />
         </v-flex>
       </v-layout>
     </v-container>

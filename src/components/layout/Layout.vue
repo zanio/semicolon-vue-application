@@ -19,10 +19,12 @@
 <script>
 import ApplyForm from "../ApplyForm/ApplyForm";
 import ApplyLeft from "../ApplyLeft/ApplyLeft";
+import Alert from "../Alert/Alert";
 
 export default {
   name: "Layout",
   components: {
+    Alert,
     ApplyLeft,
     ApplyForm
   }

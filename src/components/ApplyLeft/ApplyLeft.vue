@@ -15,11 +15,7 @@
           max-width="300"
         >
           <template v-slot:placeholder>
-            <v-row
-              class="fill-height ma-0"
-              align="center"
-              justify="center"
-            >
+            <v-row class="fill-height ma-0" align="center" justify="center">
               <v-progress-circular
                 indeterminate
                 color="grey lighten-5"
@@ -43,7 +39,6 @@
     </v-col>
     <v-col cols="12" lg="2" />
   </v-row>
-
 </template>
 
 <script>
