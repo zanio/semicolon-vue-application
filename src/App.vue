@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    z<v-container v-if="errors && errors.length > 0" fluid>
+    <v-container v-if="errors && errors.length > 0" fluid>
       <v-layout row>
         <v-flex xs12>
           <alert
