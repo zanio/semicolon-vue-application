@@ -16,16 +16,10 @@
 </template>
 
 <script>
-import SemicolonHeader from "@/components/footer/Footer";
-import SemicolonFooter from "@/components/header/Header";
 import { mapState } from "vuex";
 
 export default {
   name: "App",
-  components: {
-    SemicolonHeader,
-    SemicolonFooter
-  },
   computed: {
     ...mapState({
       errors: state => state.auth.errors,
@@ -35,4 +29,3 @@ export default {
 };
 </script>
 
-<style></style>

@@ -1,5 +1,7 @@
-import Vue from "vue";
+import Vue from "vue"
+import "./scss/index.scss";
 import App from "./App.vue";
+
 import router from "./router/router.index";
 import store from "./store";
 import VueTelInputVuetify from "vue-tel-input-vuetify/lib";
