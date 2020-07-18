@@ -13,7 +13,7 @@
                     alt="Semicolon Logo"
                     class="shrink"
                     contain
-                    src="../../static/semicolon.svg"
+                    src="src/static/semicolon.svg"
                     transition="scale-transition"
                     max-width="200"
                   >
@@ -166,7 +166,7 @@
                   alt="Semicolon Logo"
                   class="shrink"
                   contain
-                  src="../../static/doorway-illo.png"
+                  src="src/static/doorway-illo.png"
                   transition="scale-transition"
                   max-width="300"
                 >

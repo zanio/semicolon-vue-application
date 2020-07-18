@@ -1,11 +1,14 @@
 // src/sass/variables.scss
 @import '~vuetify/src/styles/styles.sass';
 
-$primary:green !important;
-$secondary:pink !important;
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 // The variables you want to modify
 $font-size-root: 14px;
 // For updating SASS lists
 $material-light: map-merge($material-light, ( cards: blue ));
-$btn-border-radius: 40px !important;
+$btn-border-radius: 8px !important;
+$btn-text-transform: capitalize !important;
+$btn-letter-spacing:0.05rem !important;//
+$body-font-family: "IBM Plex Sans", sans-serif !important;
+
+

@@ -10,6 +10,10 @@
         />
       </v-col>
 
+      <template>
+        <registration></registration>
+      </template>
+
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
           Welcome to Vuetify
@@ -82,8 +86,12 @@
 </template>
 
 <script>
+import Registration from "../components/Registration/Registration";
 export default {
   name: "HelloWorld",
+  components: {
+    Registration
+  },
 
   data: () => ({
     ecosystem: [

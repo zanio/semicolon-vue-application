@@ -3,9 +3,7 @@
     <v-container v-if="errors && errors.length > 0" fluid>
       <v-layout row>
         <v-flex xs12>
-          <alert
-            :text="errors"
-          />
+          <alert :text="errors" />
         </v-flex>
       </v-layout>
     </v-container>
@@ -28,4 +26,3 @@ export default {
   }
 };
 </script>
-
