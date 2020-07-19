@@ -1,12 +1,12 @@
 <template>
   <v-app>
     <v-main>
-      <v-row style="height:100%;" no-gutters>
+      <v-row style="height: 100%;" no-gutters>
         <v-col cols="12" lg="1" class="hidden-md-and-down" />
         <v-col cols="12" sm="12" lg="3" md="12">
           <v-container>
             <div class="d-flex flex-column">
-              <v-responsive class=" mb-lg-8 mb-sm-5 pt-10">
+              <v-responsive class="mb-lg-8 mb-sm-5 pt-10">
                 <router-link to="/">
                   <v-img
                     alt="Semicolon Logo"
@@ -29,7 +29,6 @@
                       </v-row>
                     </template>
                   </v-img>
-
                 </router-link>
               </v-responsive>
               <slot name="left"></slot>
@@ -43,7 +42,7 @@
             <v-col cols="12" lg="6">
               <div
                 class="d-flex flex-column justify-center align-center"
-                style="height:500px;"
+                style="height: 500px;"
               >
                 <slot name="right"></slot>
               </div>
@@ -89,17 +88,17 @@ export default {
   },
   computed: {
     regexValidationForNumber() {
-      return [v => !!v || "phone number is required"];
+      return [(v) => !!v || "phone number is required"];
     },
     emailRule() {
       return [
-        v => !!v,
-        v => /.+@.+/.test(v) || "Email is required and Email must be valid"
+        (v) => !!v,
+        (v) => /.+@.+/.test(v) || "Email is required and Email must be valid"
       ];
     },
     ...mapState({
-      errors: state => state.auth.errors,
-      isLoading: state => state.auth.isLoading
+      errors: (state) => state.auth.errors,
+      isLoading: (state) => state.auth.isLoading
     })
   },
   watch: {

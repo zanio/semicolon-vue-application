@@ -16,15 +16,12 @@
       </v-row>
     </template>
   </v-img>
-
 </template>
 
 <script>
-  export default {
-    name: "ResetPasswordImage"
-  };
+export default {
+  name: "ResetPasswordImage"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

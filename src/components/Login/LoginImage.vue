@@ -16,15 +16,12 @@
       </v-row>
     </template>
   </v-img>
-
 </template>
 
 <script>
-  export default {
-    name: "LoginImage"
-  };
+export default {
+  name: "LoginImage"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

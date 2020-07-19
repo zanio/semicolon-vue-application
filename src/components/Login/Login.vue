@@ -11,7 +11,7 @@
       outlined
       type="email"
       required
-      :rules="[v => !!v || 'Please enter a valid email address']"
+      :rules="[(v) => !!v || 'Please enter a valid email address']"
     ></v-text-field>
 
     <v-text-field
@@ -21,7 +21,7 @@
       outlined
       type="password"
       required
-      :rules="[v => !!v || 'Please type a valid password']"
+      :rules="[(v) => !!v || 'Please type a valid password']"
     ></v-text-field>
 
     <v-btn
@@ -35,42 +35,40 @@
       Login
     </v-btn>
     <v-container>
-      <v-layout row justify-space-between >
+      <v-layout row justify-space-between>
         <v-flex>
           <router-link to="/create-password">
             <div class="text-center">
-              <a class="primary--text d-inline-block
-          font-weight-medium darken-3 text-decoration-none">Forgot Your Password</a>
+              <a
+                class="primary--text d-inline-block font-weight-medium darken-3 text-decoration-none"
+                >Forgot Your Password</a
+              >
             </div>
-
           </router-link>
         </v-flex>
-
       </v-layout>
     </v-container>
-
-
   </v-form>
 </template>
 
 <script>
-  export default {
-    name: "login-form",
-    props: {},
-    data() {
-      return {
-        password: "",
-        email: "",
-        isValid: true
-      };
-    },
+export default {
+  name: "login-form",
+  props: {},
+  data() {
+    return {
+      password: "",
+      email: "",
+      isValid: true
+    };
+  },
 
-    methods: {
-      onLogin() {
-        if (this.$refs["login"].validate()) {
-          console.log("The Login button has been clicked");
-        }
+  methods: {
+    onLogin() {
+      if (this.$refs["login"].validate()) {
+        console.log("The Login button has been clicked");
       }
     }
-  };
+  }
+};
 </script>

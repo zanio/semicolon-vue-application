@@ -19,12 +19,9 @@
 </template>
 
 <script>
-  export default {
-    name: "CreatePasswordImage",
-
-  };
+export default {
+  name: "CreatePasswordImage"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

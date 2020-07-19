@@ -13,7 +13,7 @@
         class="mr-2"
         type="text"
         required
-        :rules="[v => !!v || 'first name is required']"
+        :rules="[(v) => !!v || 'first name is required']"
       ></v-text-field>
 
       <v-text-field
@@ -24,7 +24,7 @@
         v-model="lastname"
         type="text"
         required
-        :rules="[v => !!v || 'Last name is required']"
+        :rules="[(v) => !!v || 'Last name is required']"
       ></v-text-field>
     </div>
 
@@ -67,7 +67,7 @@
       :append-icon="mdiChevronDown"
       small-chips
       required
-      :rules="[v => !!v || 'Age range is required']"
+      :rules="[(v) => !!v || 'Age range is required']"
       menu-props="auto, overflowY"
       :search-input.sync="search"
       cache-items
@@ -75,7 +75,7 @@
     </v-autocomplete>
 
     <v-radio-group
-      :rules="[v => !!v || 'Gender is required']"
+      :rules="[(v) => !!v || 'Gender is required']"
       v-model="gender"
       required
       label="Gender"
@@ -87,7 +87,7 @@
 
     <v-checkbox
       dense
-      :rules="[v => !!v || 'Please accept the terms and condition']"
+      :rules="[(v) => !!v || 'Please accept the terms and condition']"
       required
       v-model="checkbox"
     >
@@ -150,23 +150,23 @@ export default {
   },
   computed: {
     regexValidationForNumber() {
-      return [v => !!v || "phone number is required"];
+      return [(v) => !!v || "phone number is required"];
     },
     emailRule() {
       return [
-        v => !!v,
-        v => /.+@.+/.test(v) || "Email is required and Email must be valid"
+        (v) => !!v,
+        (v) => /.+@.+/.test(v) || "Email is required and Email must be valid"
       ];
     },
     ...mapState({
-      errors: state => state.auth.errors,
-      isLoading: state => state.auth.isLoading
+      errors: (state) => state.auth.errors,
+      isLoading: (state) => state.auth.isLoading
     })
   },
   watch: {
     search(val) {
       val && val !== this.select && this.querySelections(val);
-      console.log( val && val !== this.select && this.querySelections(val))
+      console.log(val && val !== this.select && this.querySelections(val));
     }
   },
   methods: {

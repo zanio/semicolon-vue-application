@@ -21,6 +21,6 @@
 <script>
 export default {
   name: "registration-image",
-  props: {},
+  props: {}
 };
 </script>
