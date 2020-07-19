@@ -5,7 +5,7 @@
     contain
     :src="require(`../../static/doorway-illo.png`)"
     transition="scale-transition"
-    max-width="300"
+    max-width="650"
   >
     <template v-slot:placeholder>
       <v-row class="fill-height ma-0" align="center" justify="center">
