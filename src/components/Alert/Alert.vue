@@ -1,12 +1,14 @@
 <template>
   <v-alert
-    type="error"
+    v-if="text"
+    type="primary"
+    tile
     dense
-    class="red--text darken-2 font-weight-bold text-center"
+    class="white--text darken-2 remove-margin font-weight-bold text-center"
     @input="onClose"
     :value="true"
+    v-text="text"
   >
-    {{ text }}
   </v-alert>
 </template>
 
@@ -20,3 +22,17 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@import "../../scss/variables";
+
+.v-alert {
+  margin: 0;
+  position: fixed;
+  box-shadow: 10px 10px 18px -6px rgba(0, 0, 0, 0.37) !important;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+</style>

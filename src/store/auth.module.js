@@ -28,9 +28,15 @@ const getters = {
   }
 };
 
+function clearErrorAfterTimeout(context) {
+  setTimeout(() => {
+    context.commit(CLEAR_ERROR);
+  }, 5000);
+}
+
 const actions = {
   [LOGIN](context, credentials) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       ApiService.post("auth/login", credentials)
         .then(({ data }) => {
           context.commit(SET_AUTH, data);
@@ -52,12 +58,10 @@ const actions = {
           context.commit(SET_AUTH, data);
           resolve(data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error.response.data.errors);
           context.commit(SET_ERROR, error.response.data.errors);
-          setTimeout(() => {
-            context.commit(CLEAR_ERROR);
-          }, 5000);
+          clearErrorAfterTimeout(context);
           reject(error.response);
         });
     });
@@ -71,6 +75,7 @@ const actions = {
         })
         .catch(({ response }) => {
           context.commit(SET_ERROR, response.data.errors);
+          clearErrorAfterTimeout(context);
         });
     } else {
       context.commit(PURGE_AUTH);

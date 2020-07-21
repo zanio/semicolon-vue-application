@@ -152,6 +152,7 @@ export default {
     regexValidationForNumber() {
       return [(v) => !!v || "phone number is required"];
     },
+
     emailRule() {
       return [
         (v) => !!v,
@@ -185,7 +186,7 @@ export default {
     onSignup() {
       if (this.$refs.form.validate()) {
         this.$store
-          .dispatch(REGISTER, {
+          .dispatch("setRegister", {
             firstname: this.firstname,
             lastname: this.lastname,
             phoneNumber: this.phone,
