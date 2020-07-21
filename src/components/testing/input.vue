@@ -23,6 +23,7 @@ export default {
       type: String
     }
   },
+  mounted() {},
   watch: {
     value: function (currentValue, oldValue) {
       console.log(
