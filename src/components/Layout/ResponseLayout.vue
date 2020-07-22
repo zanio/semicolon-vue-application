@@ -14,8 +14,8 @@
               alt="Login Page Image"
               class="shrink mt-8 mb-8"
               contain
-              width="130px"
-              height="130px"
+              width="90px"
+              height="90px"
               :src="require(`../../static/thumbs-up.svg`)"
               transition="scale-transition"
             >

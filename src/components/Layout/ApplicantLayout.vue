@@ -9,7 +9,7 @@
             </v-flex>
             <v-flex offest-xs6 offset-lg6 d-flex>
               <v-layout row justify-space-between>
-                <v-flex offset-xs6 offset-md11 offset-sm9 offset-lg8>
+                <v-flex offset-xs5 offset-md11 offset-sm9 offset-lg8>
                   <v-app-bar-nav-icon
                     class="hidden-md-and-up"
                   ></v-app-bar-nav-icon>
