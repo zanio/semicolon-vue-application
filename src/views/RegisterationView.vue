@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/Layout/AuthLayout";
 import RegistrationImage from "../components/Registration/RegistrationImage";
 import LayoutButton from "../components/LayoutButton/LayoutButton";
 import Registration from "../components/Registration/Registration";

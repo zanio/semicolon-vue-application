@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import programmaticScrolling from "vuetify/es5/services/goto";
+import ResponseLayout from "../components/Layout/ResponseLayout";
+import ApplicantLayout from "../components/Layout/ApplicantLayout";
 
 Vue.use(Router);
 
@@ -29,6 +31,18 @@ export default new Router({
       path: "/apply",
       component: () => import("@/views/RegisterationView"),
       meta: { title: "Semicolon - Application" }
+    },
+    {
+      name: "response",
+      path: "/response",
+      component: ResponseLayout,
+      meta: { title: "Semicolon - Response" }
+    },
+    {
+      name: "dashboard",
+      path: "/dashboard",
+      component: ApplicantLayout,
+      meta: { title: "Semicolon - dashboard" }
     },
     {
       name: "Create Password",

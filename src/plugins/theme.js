@@ -9,5 +9,7 @@ export default {
   success: "#00D689",
   warning: "#FFC107",
   orange: "#FF7E1D",
-  default: "#2B1C1C"
+  default: "#2B1C1C",
+  "light-color": "#2B1C1C;",
+  "app-background-color": "#F6F6F6"
 };

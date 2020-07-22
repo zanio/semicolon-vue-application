@@ -10,22 +10,18 @@
   </layout>
 </template>
 
-
 <script>
-  import Layout from "../components/Layout/Layout";
-  import LoginImage from "../components/Login/LoginImage";
-  import ResetPassword from "../components/ResetPassword/ResetPassword";
-  export default {
-    name: "ResetPasswordView",
-    components: {
-      Layout,
-      LoginImage,
-      ResetPassword
-    }
-  };
+import Layout from "../components/Layout/AuthLayout";
+import LoginImage from "../components/Login/LoginImage";
+import ResetPassword from "../components/ResetPassword/ResetPassword";
+export default {
+  name: "ResetPasswordView",
+  components: {
+    Layout,
+    LoginImage,
+    ResetPassword
+  }
+};
 </script>
 
-
-<style scoped>
-
-</style>
+<style scoped></style>
