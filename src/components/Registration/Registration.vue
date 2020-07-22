@@ -199,3 +199,16 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.v-form {
+  .country-code {
+    padding: 0;
+    margin: 0;
+  }
+  .vue-tel-input-vuetify .country-code {
+    background: green;
+    border: solid 1rem purple;
+  }
+}
+</style>

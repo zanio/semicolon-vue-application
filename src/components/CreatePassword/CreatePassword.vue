@@ -12,6 +12,7 @@
       :error-messages="PasswordErrors"
       @input="$v.password.$touch()"
       type="password"
+      class="mb-5-lg"
       required
     ></v-text-field>
 
@@ -21,6 +22,7 @@
       v-model.lazy="$v.confirmPassword.$model"
       :error-messages="ConfirmPasswordErrors"
       outlined
+      class="mb-5-lg"
       @input="$v.confirmPassword.$touch()"
       @keydown.enter="onCreatePassword"
       type="password"
