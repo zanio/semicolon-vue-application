@@ -66,7 +66,12 @@ export default {
   methods: {
     onLogin() {
       if (this.$refs["login"].validate()) {
-        console.log("The Login button has been clicked");
+        this.$store
+          .dispatch("auth/SetLogin", {
+            email: this.email,
+            password: this.password
+          })
+          .then(() => this.$router.push({ name: "welcome" }));
       }
     }
   }

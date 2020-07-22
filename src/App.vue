@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-layout row v-if="errors && errors.response">
+    <v-layout row v-if="errors">
       <v-flex xs12>
-        <alert :text="textError" />
+        <alert :text="errors" />
       </v-flex>
     </v-layout>
 

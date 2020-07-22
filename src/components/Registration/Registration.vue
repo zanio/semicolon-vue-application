@@ -120,7 +120,6 @@
 
 <script>
 import { mapState } from "vuex";
-import { REGISTER } from "@/store/actions.type";
 import { mdiChevronDown } from "@mdi/js";
 
 export default {
@@ -186,12 +185,12 @@ export default {
     onSignup() {
       if (this.$refs.form.validate()) {
         this.$store
-          .dispatch("setRegister", {
+          .dispatch("auth/setRegister", {
             firstname: this.firstname,
             lastname: this.lastname,
             phoneNumber: this.phone,
             email: this.email,
-            gender: this.gendeer,
+            gender: this.gender,
             select: this.select
           })
           .then(() => this.$router.push({ name: "welcome" }));

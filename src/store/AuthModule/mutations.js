@@ -1,10 +1,3 @@
-import { SET_AUTH } from "./mutation-types";
-import {
-  CLEAR_ERROR,
-  FETCH_START,
-  PURGE_AUTH,
-  SET_ERROR
-} from "../mutations.type";
 import JwtService from "@/common/jwt.service";
 
 export default {
@@ -12,28 +5,28 @@ export default {
    *
    * @param { object } state
    */
-  [FETCH_START](state) {
+  FETCH_START: (state) => {
     state.isLoading = true;
   },
 
-  [SET_ERROR](state, error) {
+  SET_ERROR: (state, error) => {
     state.isLoading = false;
     state.errors = error;
   },
-  [SET_AUTH](state, user) {
+  SET_AUTH: (state, user) => {
     state.isAuthenticated = true;
     state.user = user;
     state.isLoading = false;
     state.errors = {};
     JwtService.saveToken(state.user.token);
   },
-  [PURGE_AUTH](state) {
+  PURGE_AUTH: (state) => {
     state.isAuthenticated = false;
     state.user = {};
     state.errors = {};
     JwtService.destroyToken();
   },
-  [CLEAR_ERROR](state) {
+  CLEAR_ERROR: (state) => {
     state.errors = {};
   }
 };

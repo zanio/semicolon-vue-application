@@ -14,6 +14,7 @@ import DateFilter from "./common/date.filter";
 import ErrorFilter from "./common/error.filter";
 import vuetify from "./plugins/vuetify";
 
+import Vuelidate from "vuelidate";
 Vue.config.productionTip = false;
 
 Vue.filter("date", DateFilter);
@@ -23,6 +24,9 @@ Vue.use(VueTelInputVuetify, {
 });
 
 Vue.component("app-alert", AlertComponent);
+
+Vue.use(Vuelidate);
+
 ApiService.init();
 
 // Ensure we checked auth before each page load.
