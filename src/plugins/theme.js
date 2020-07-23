@@ -11,5 +11,6 @@ export default {
   orange: "#FF7E1D",
   default: "#2B1C1C",
   "light-color": "#2B1C1C;",
-  "app-background-color": "#F6F6F6"
+  "app-background-color": "#F6F6F6",
+  "deep-red": "#960C0C"
 };
